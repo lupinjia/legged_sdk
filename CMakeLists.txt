@@ -48,16 +48,17 @@ set_target_properties(legged_sdk PROPERTIES LINKER_LANGUAGE CXX)
 install(DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-# For generating reference legged_sdkTargets.cmake file in the first time
 install(TARGETS legged_sdk
     EXPORT legged_sdkTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     )
-install(EXPORT legged_sdkTargets
-    FILE legged_sdkTargets.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/legged_sdk)
+
+# # For generating reference legged_sdkTargets.cmake file in the first time
+# install(EXPORT legged_sdkTargets
+#     FILE legged_sdkTargets.cmake
+#     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/legged_sdk)
 
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
@@ -74,5 +75,5 @@ configure_package_config_file(
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/legged_sdkConfig.cmake
     ${CMAKE_CURRENT_BINARY_DIR}/legged_sdkConfigVersion.cmake
-    # ${CMAKE_CURRENT_LIST_DIR}/cmake/legged_sdkTargets.cmake       # directly install modified cmake file including thirdparty libs configs
+    ${CMAKE_CURRENT_LIST_DIR}/cmake/legged_sdkTargets.cmake       # directly install modified cmake file including thirdparty libs configs
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/legged_sdk)

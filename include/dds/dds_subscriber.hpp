@@ -218,12 +218,10 @@ private:
         reader_qos_.resource_limits().max_samples_per_instance = 1;
         // Set deadline (data validity period)
         reader_qos_.deadline().period = {0, static_cast<uint32_t>(period_us_ * 1000)};  // convert to nanoseconds
-        // Set callback to be executed immediately
-        reader_qos_.reader_resource_limits().matched_publisher_allocation = {
-            .initial = 1,
-            .maximum = 1,
-            .increment = 1
-        };
+        // Set the maximum size for writer matched resource limits collection to 1 and its allocation configuration to fixed size
+        // only one publisher is expected to publish data to this subscriber
+        reader_qos_.reader_resource_limits().matched_publisher_allocation = 
+            eprosima::fastdds::ResourceLimitedContainerConfig::fixed_size_configuration(1u);
         reader_ = subscriber_->create_datareader(topic_, reader_qos_, this);
     }
 };
