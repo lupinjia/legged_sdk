@@ -1,0 +1,12 @@
+module legged
+{
+    module idl
+    {
+        struct HelloWorld
+        {
+            unsigned long index;
+            string message;
+            unsigned long long timestamp;
+        };
+    };
+};

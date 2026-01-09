@@ -1,0 +1,8 @@
+include(CMakeFindDependencyMacro)
+
+# Same syntax as find_package
+find_dependency(Threads REQUIRED)
+find_dependency(spdlog REQUIRED)
+
+# Load exported targets first so _IMPORT_PREFIX is defined, then add bundled third-party imports.
+include("${CMAKE_CURRENT_LIST_DIR}/legged_sdkTargets.cmake")

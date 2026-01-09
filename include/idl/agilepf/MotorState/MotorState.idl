@@ -1,0 +1,14 @@
+module legged
+{
+    module idl
+    {
+        module agilepf
+        {
+            struct MotorState
+            {
+                float q;   // joint angle
+                float dq;  // joint angular velocity
+            };
+        };
+    };
+};

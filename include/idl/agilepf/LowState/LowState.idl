@@ -1,0 +1,22 @@
+#include <idl/agilepf/MotorState/MotorState.idl>
+#include <idl/agilepf/JoystickData/JoystickData.idl>
+#include <idl/agilepf/IMUState/IMUState.idl>
+
+module legged
+{
+    module idl
+    {
+        module agilepf
+        {
+            struct LowState
+            {
+                octet         header[2];
+                IMUState      imu_state;
+                MotorState    motor_state[6];
+                JoystickData  joystick_data;
+                unsigned long crc;
+                octet         tail[2];
+            };
+        };
+    };
+};

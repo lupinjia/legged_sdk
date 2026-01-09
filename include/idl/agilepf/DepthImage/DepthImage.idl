@@ -1,0 +1,15 @@
+module legged
+{
+    module idl
+    {
+        module agilepf
+        {
+            struct DepthImage
+            {
+                unsigned short width;
+                unsigned short height;
+                sequence<float> normalized_value;
+            };
+        };
+    };
+};

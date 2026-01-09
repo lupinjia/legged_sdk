@@ -1,0 +1,17 @@
+module legged
+{
+    module idl
+    {
+        module agilepf
+        {
+            struct MotorCmd
+            {
+                float q;   // joint angle
+                float dq;  // joint angular velocity
+                float tau; // feed-forward torque
+                float kp;  // proportional gain
+                float kd;  // derivative gain
+            };
+        };
+    };
+};

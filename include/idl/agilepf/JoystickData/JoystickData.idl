@@ -1,0 +1,28 @@
+module legged
+{
+    module idl
+    {
+        module agilepf
+        {
+            struct JoystickData
+            {
+                float left_stick_x;
+                float left_stick_y;
+                float right_stick_x;
+                float right_stick_y;
+                octet start_button;
+                octet select_button;
+                octet left_button;
+                octet right_button;
+                octet up_button;
+                octet down_button;
+                octet a_button;
+                octet b_button;
+                octet x_button;
+                octet y_button;
+                octet l1_button;
+                octet r1_button;
+            };
+        };
+    };
+};

@@ -1,0 +1,16 @@
+module legged
+{
+    module idl
+    {
+        module agilepf
+        {
+            struct IMUState
+            {
+                float quaternion[4];   
+                float gyroscope[3];     // angular velocity
+                float accelerometer[3]; // linear acceleration
+                float rpy[3];
+            };
+        };
+    };
+};
