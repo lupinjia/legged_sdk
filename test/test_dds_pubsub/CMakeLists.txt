@@ -25,3 +25,9 @@ add_executable(test_dds_sub
 target_link_libraries(test_dds_sub
     legged_sdk
 )
+add_executable(test_low_state_sub
+    test_low_state_sub.cpp
+)
+target_link_libraries(test_low_state_sub
+    legged_sdk
+)

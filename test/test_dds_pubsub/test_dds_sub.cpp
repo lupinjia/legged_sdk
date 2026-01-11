@@ -14,12 +14,19 @@ void message_callback(const void* msg)
     }
 }
 
-int main()
+int main(int argc, char** argv)
 {
+    int domain_id = 1;
+    std::string network_interface = "lo";
+    if(argc > 1)
+    {
+        domain_id = 0;
+        network_interface = argv[1];
+    }
     // Create DDS Subscriber
     DDSSubscriber<legged::idl::HelloWorld, legged::idl::HelloWorldPubSubType> subscriber(
-        1,                 // domain ID
-        "lo",              // network interface name
+        domain_id,         // domain ID
+        network_interface, // network interface name
         "HelloWorldTopic", // topic name
         message_callback,  // callback function
         1000.0f            // subscription period in us

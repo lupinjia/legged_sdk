@@ -188,36 +188,6 @@ void register_LowCmd_type_identifier(
             TypeObjectUtils::add_complete_struct_member(member_seq_LowCmd, member_motor_cmd);
         }
         {
-            TypeIdentifierPair type_ids_crc;
-            ReturnCode_t return_code_crc {eprosima::fastdds::dds::RETCODE_OK};
-            return_code_crc =
-                eprosima::fastdds::dds::DomainParticipantFactory::get_instance()->type_object_registry().get_type_identifiers(
-                "_uint32_t", type_ids_crc);
-
-            if (eprosima::fastdds::dds::RETCODE_OK != return_code_crc)
-            {
-                EPROSIMA_LOG_ERROR(XTYPES_TYPE_REPRESENTATION,
-                        "crc Structure member TypeIdentifier unknown to TypeObjectRegistry.");
-                return;
-            }
-            StructMemberFlag member_flags_crc = TypeObjectUtils::build_struct_member_flag(eprosima::fastdds::dds::xtypes::TryConstructFailAction::DISCARD,
-                    false, false, false, false);
-            MemberId member_id_crc = 0x00000002;
-            bool common_crc_ec {false};
-            CommonStructMember common_crc {TypeObjectUtils::build_common_struct_member(member_id_crc, member_flags_crc, TypeObjectUtils::retrieve_complete_type_identifier(type_ids_crc, common_crc_ec))};
-            if (!common_crc_ec)
-            {
-                EPROSIMA_LOG_ERROR(XTYPES_TYPE_REPRESENTATION, "Structure crc member TypeIdentifier inconsistent.");
-                return;
-            }
-            MemberName name_crc = "crc";
-            eprosima::fastcdr::optional<AppliedBuiltinMemberAnnotations> member_ann_builtin_crc;
-            ann_custom_LowCmd.reset();
-            CompleteMemberDetail detail_crc = TypeObjectUtils::build_complete_member_detail(name_crc, member_ann_builtin_crc, ann_custom_LowCmd);
-            CompleteStructMember member_crc = TypeObjectUtils::build_complete_struct_member(common_crc, detail_crc);
-            TypeObjectUtils::add_complete_struct_member(member_seq_LowCmd, member_crc);
-        }
-        {
             TypeIdentifierPair type_ids_tail;
             ReturnCode_t return_code_tail {eprosima::fastdds::dds::RETCODE_OK};
             return_code_tail =
@@ -266,7 +236,7 @@ void register_LowCmd_type_identifier(
             }
             StructMemberFlag member_flags_tail = TypeObjectUtils::build_struct_member_flag(eprosima::fastdds::dds::xtypes::TryConstructFailAction::DISCARD,
                     false, false, false, false);
-            MemberId member_id_tail = 0x00000003;
+            MemberId member_id_tail = 0x00000002;
             bool common_tail_ec {false};
             CommonStructMember common_tail {TypeObjectUtils::build_common_struct_member(member_id_tail, member_flags_tail, TypeObjectUtils::retrieve_complete_type_identifier(type_ids_tail, common_tail_ec))};
             if (!common_tail_ec)

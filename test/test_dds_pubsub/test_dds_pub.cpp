@@ -4,12 +4,19 @@
 
 using namespace legged::dds;
 
-int main()
+int main(int argc, char** argv)
 {
+    int domain_id = 1;
+    std::string network_interface = "lo";
+    if(argc > 1)
+    {
+        domain_id = 0;
+        network_interface = argv[1];
+    }
     // Create DDS Publisher
     DDSPublisher<legged::idl::HelloWorld, legged::idl::HelloWorldPubSubType> publisher(
-        1,                 // domain ID
-        "lo",              // network interface name
+        domain_id,                 // domain ID
+        network_interface,              // network interface name
         "HelloWorldTopic", // topic name
         1000.0f            // publication period in us
     );

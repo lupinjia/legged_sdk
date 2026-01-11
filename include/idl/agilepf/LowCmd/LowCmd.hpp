@@ -90,8 +90,6 @@ public:
 
                     m_motor_cmd = x.m_motor_cmd;
 
-                    m_crc = x.m_crc;
-
                     m_tail = x.m_tail;
 
     }
@@ -105,7 +103,6 @@ public:
     {
         m_header = std::move(x.m_header);
         m_motor_cmd = std::move(x.m_motor_cmd);
-        m_crc = x.m_crc;
         m_tail = std::move(x.m_tail);
     }
 
@@ -120,8 +117,6 @@ public:
                     m_header = x.m_header;
 
                     m_motor_cmd = x.m_motor_cmd;
-
-                    m_crc = x.m_crc;
 
                     m_tail = x.m_tail;
 
@@ -138,7 +133,6 @@ public:
 
         m_header = std::move(x.m_header);
         m_motor_cmd = std::move(x.m_motor_cmd);
-        m_crc = x.m_crc;
         m_tail = std::move(x.m_tail);
         return *this;
     }
@@ -152,7 +146,6 @@ public:
     {
         return (m_header == x.m_header &&
            m_motor_cmd == x.m_motor_cmd &&
-           m_crc == x.m_crc &&
            m_tail == x.m_tail);
     }
 
@@ -245,35 +238,6 @@ public:
 
 
     /*!
-     * @brief This function sets a value in member crc
-     * @param _crc New value for member crc
-     */
-    eProsima_user_DllExport void crc(
-            uint32_t _crc)
-    {
-        m_crc = _crc;
-    }
-
-    /*!
-     * @brief This function returns the value of member crc
-     * @return Value of member crc
-     */
-    eProsima_user_DllExport uint32_t crc() const
-    {
-        return m_crc;
-    }
-
-    /*!
-     * @brief This function returns a reference to member crc
-     * @return Reference to member crc
-     */
-    eProsima_user_DllExport uint32_t& crc()
-    {
-        return m_crc;
-    }
-
-
-    /*!
      * @brief This function copies the value in member tail
      * @param _tail New value to be copied in member tail
      */
@@ -317,7 +281,6 @@ private:
 
     std::array<uint8_t, 2> m_header{0};
     std::array<MotorCmd, 6> m_motor_cmd;
-    uint32_t m_crc{0};
     std::array<uint8_t, 2> m_tail{0};
 
 };

@@ -96,8 +96,6 @@ public:
 
                     m_joystick_data = x.m_joystick_data;
 
-                    m_crc = x.m_crc;
-
                     m_tail = x.m_tail;
 
     }
@@ -113,7 +111,6 @@ public:
         m_imu_state = std::move(x.m_imu_state);
         m_motor_state = std::move(x.m_motor_state);
         m_joystick_data = std::move(x.m_joystick_data);
-        m_crc = x.m_crc;
         m_tail = std::move(x.m_tail);
     }
 
@@ -133,8 +130,6 @@ public:
 
                     m_joystick_data = x.m_joystick_data;
 
-                    m_crc = x.m_crc;
-
                     m_tail = x.m_tail;
 
         return *this;
@@ -152,7 +147,6 @@ public:
         m_imu_state = std::move(x.m_imu_state);
         m_motor_state = std::move(x.m_motor_state);
         m_joystick_data = std::move(x.m_joystick_data);
-        m_crc = x.m_crc;
         m_tail = std::move(x.m_tail);
         return *this;
     }
@@ -168,7 +162,6 @@ public:
            m_imu_state == x.m_imu_state &&
            m_motor_state == x.m_motor_state &&
            m_joystick_data == x.m_joystick_data &&
-           m_crc == x.m_crc &&
            m_tail == x.m_tail);
     }
 
@@ -339,35 +332,6 @@ public:
 
 
     /*!
-     * @brief This function sets a value in member crc
-     * @param _crc New value for member crc
-     */
-    eProsima_user_DllExport void crc(
-            uint32_t _crc)
-    {
-        m_crc = _crc;
-    }
-
-    /*!
-     * @brief This function returns the value of member crc
-     * @return Value of member crc
-     */
-    eProsima_user_DllExport uint32_t crc() const
-    {
-        return m_crc;
-    }
-
-    /*!
-     * @brief This function returns a reference to member crc
-     * @return Reference to member crc
-     */
-    eProsima_user_DllExport uint32_t& crc()
-    {
-        return m_crc;
-    }
-
-
-    /*!
      * @brief This function copies the value in member tail
      * @param _tail New value to be copied in member tail
      */
@@ -413,7 +377,6 @@ private:
     IMUState m_imu_state;
     std::array<MotorState, 6> m_motor_state;
     JoystickData m_joystick_data;
-    uint32_t m_crc{0};
     std::array<uint8_t, 2> m_tail{0};
 
 };

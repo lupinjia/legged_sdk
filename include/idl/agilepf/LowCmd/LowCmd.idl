@@ -10,7 +10,6 @@ module legged
             {
                 octet         header[2];
                 MotorCmd      motor_cmd[6];
-                unsigned long crc;
                 octet         tail[2];
             };
         };

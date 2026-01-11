@@ -23,7 +23,7 @@
 #define FAST_DDS_GENERATED__LEGGED_IDL_AGILEPF_LOWCMDCDRAUX_HPP
 
 #include "LowCmd.hpp"
-constexpr uint32_t legged_idl_agilepf_LowCmd_max_cdr_typesize {162UL};
+constexpr uint32_t legged_idl_agilepf_LowCmd_max_cdr_typesize {158UL};
 constexpr uint32_t legged_idl_agilepf_LowCmd_max_key_cdr_typesize {0UL};
 
 

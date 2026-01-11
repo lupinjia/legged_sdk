@@ -14,7 +14,6 @@ module legged
                 IMUState      imu_state;
                 MotorState    motor_state[6];
                 JoystickData  joystick_data;
-                unsigned long crc;
                 octet         tail[2];
             };
         };
