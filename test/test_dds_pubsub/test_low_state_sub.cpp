@@ -8,7 +8,6 @@ using namespace legged::dds;
 
 void message_callback(const void* msg)
 {
-    uint32_t offset = 0;
     legged::idl::agilepf::LowState rev_msg = *(legged::idl::agilepf::LowState*)msg;
     if(rev_msg.header()[0] == 0xAA && rev_msg.header()[1] == 0xBB && rev_msg.tail()[0] == 0xEE && rev_msg.tail()[1] == 0xFF)
     {
