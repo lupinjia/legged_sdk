@@ -31,3 +31,9 @@ add_executable(test_low_state_sub
 target_link_libraries(test_low_state_sub
     legged_sdk
 )
+add_executable(test_low_cmd_pub
+    test_low_cmd_pub.cpp
+)
+target_link_libraries(test_low_cmd_pub
+    legged_sdk
+)

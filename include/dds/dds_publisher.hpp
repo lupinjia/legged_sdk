@@ -135,6 +135,10 @@ public:
             spdlog::error("Error creating DataWriter!");
             return false;
         }
+
+        spdlog::info("DDS Publisher initialized successfully on topic: {}, with domain_id: {}, interface: {}", 
+                          topic_name_, domain_id_, interface_name_);
+        
         return true;
     }
 
@@ -217,7 +221,7 @@ private:
         writer_qos_.publish_mode().kind = SYNCHRONOUS_PUBLISH_MODE;
         // Set liveliness
         writer_qos_.liveliness().kind = AUTOMATIC_LIVELINESS_QOS;
-        writer_qos_.liveliness().lease_duration = {1, 0};  // 1 second
+        writer_qos_.liveliness().lease_duration = {1, 0};               // 1 second
         writer_qos_.liveliness().announcement_period = {0, 100000000};  // 100ms
         writer_ = publisher_->create_datawriter(topic_, writer_qos_, nullptr);
     }
