@@ -54,14 +54,14 @@ endif()
 add_library(fastcdr SHARED IMPORTED GLOBAL)
 set_target_properties(fastcdr PROPERTIES
     IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libfastcdr.so
-    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include/fastcdr"
+    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/legged_sdk;${_IMPORT_PREFIX}/include/legged_sdk/fastcdr"
     INTERFACE_LINK_LIBRARIES "-pthread"
     IMPORTED_NO_SONAME TRUE)
 
 add_library(fastdds SHARED IMPORTED GLOBAL)
 set_target_properties(fastdds PROPERTIES
     IMPORTED_LOCATION ${_IMPORT_PREFIX}/lib/libfastdds.so
-    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${_IMPORT_PREFIX}/include/fastdds"
+    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/legged_sdk;${_IMPORT_PREFIX}/include/legged_sdk/fastdds"
     INTERFACE_LINK_LIBRARIES "-pthread"
     IMPORTED_NO_SONAME TRUE)
 

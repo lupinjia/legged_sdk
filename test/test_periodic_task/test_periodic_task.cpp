@@ -1,4 +1,4 @@
-#include "common/periodic_task.hpp"
+#include "legged_sdk/common/periodic_task.hpp"
 
 #include <random>
 #include <vector>

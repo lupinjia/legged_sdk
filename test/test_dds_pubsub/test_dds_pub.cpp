@@ -1,6 +1,6 @@
-#include <dds/dds_publisher.hpp>
-#include <idl/HelloWorld/HelloWorld.hpp>
-#include <idl/HelloWorld/HelloWorldPubSubTypes.hpp>
+#include <legged_sdk/dds/dds_publisher.hpp>
+#include <legged_sdk/idl/HelloWorld/HelloWorld.hpp>
+#include <legged_sdk/idl/HelloWorld/HelloWorldPubSubTypes.hpp>
 
 using namespace legged::dds;
 
