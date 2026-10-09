@@ -1,7 +1,6 @@
 #pragma once
 
 #include "dds_wrapper/common/publisher.h"
-#include "common/crc.h"
 #include "common/legged_joystick.hpp"
 
 #include <idl/agilepf/LowCmd/LowCmd.hpp>
@@ -33,16 +32,6 @@ public:
     msg_.tail() = {0xEE, 0xFF};
 
   } 
-
-private:
-  /**
-   * @brief Something before sending the message.
-   */
-  void pre_communication() override {
-    // tail 2 bytes, crc 4 bytes
-    // data in between is sizeof(MsgType) - 6 bytes
-    msg_.crc() = crc32_core((uint32_t*)&msg_, (sizeof(MsgType)-6));
-  }
 };
 
 
@@ -64,7 +53,6 @@ private:
       legged::common::JoystickDataStruct data = joystick->combine();
       memcpy(&msg_.joystick_data(), &data, sizeof(legged::common::JoystickDataStruct));
     }
-    msg_.crc() = crc32_core((uint32_t*)&msg_, sizeof(MsgType)-6);
   }
 };
 

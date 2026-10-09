@@ -145,9 +145,9 @@ private:
   long long period_ns_;                // period in ns
   // Use CLOCK_MONOTONIC and absolute sleeps via clock_nanosleep to reduce jitter.
   struct timespec start_ts_, end_ts_;
-  std::atomic<bool> running_{false};   // if the task is running
+  std::atomic<bool> running_{false};    // if the task is running
   std::string task_name_;               // task name
-  std::thread thread_;                 // task thread
+  std::thread thread_;                  // task thread
   std::function<void()> task_function_; // task function
 };
 

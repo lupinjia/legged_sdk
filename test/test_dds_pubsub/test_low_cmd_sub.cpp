@@ -1,7 +1,6 @@
 #include <dds/dds_subscriber.hpp>
 #include <idl/agilepf/LowCmd/LowCmd.hpp>
 #include <idl/agilepf/LowCmd/LowCmdPubSubTypes.hpp>
-#include <common/crc.h>
 #include <cstring>
 
 using namespace legged::dds;
